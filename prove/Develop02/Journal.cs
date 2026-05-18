@@ -9,12 +9,13 @@ public class Journal
         {
             entry.Display();
         }
+        Console.WriteLine();
     }
 
     public void AddEntry(Entry newEntry)
     {
         _rm_entries.Add(newEntry);
-
+        newEntry.SetEntry();
     }
 
     public void SaveJournal(string file)
@@ -24,7 +25,7 @@ public class Journal
         {
             foreach (Entry entry in _rm_entries)
             {
-                outputfile.WriteLine($"{entry._rm_date}|{entry._rm_prompt_text}|{entry._rm_response_text}");
+                outputfile.WriteLine(entry.SetEntry());
             }
         }
     
@@ -32,18 +33,13 @@ public class Journal
 
     public void LoadJournal(string file)
     {
-        // string rmFileLocation = $"prove/Develop02/{file}";
         _rm_entries.Clear();
         string[] lines = System.IO.File.ReadAllLines(file);
         foreach (string line in lines)
         {
-            string[] parts = line.Split('|');
-            Entry newEntry = new Entry();
-            newEntry._rm_date = parts[0];
-            newEntry._rm_prompt_text = parts[1];
-            newEntry._rm_response_text = parts[2];
-
-            _rm_entries.Add(newEntry);
+            Entry rmTheEntry = new Entry();
+            rmTheEntry.GetEntry(line);
+            _rm_entries.Add(rmTheEntry);
         }
     }
 

@@ -3,6 +3,10 @@
 // Created by Rainen Morriss
 // CSE 210 Spring 2026
 // started 5/13/26
+// sources 
+//    class material
+//    google.com
+//    AI
 
 
 using System;
