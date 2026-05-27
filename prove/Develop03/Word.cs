@@ -4,7 +4,7 @@ public class Word
 {
     private string _rm_text;
     private bool _rm_isHidden;
-    
+
     public void RmWordBuilder(string rmInpitWord)
     {
         if (rmInpitWord != null)
