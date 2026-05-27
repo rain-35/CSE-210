@@ -5,11 +5,11 @@ public class Word
     private string _rm_text;
     private bool _rm_isHidden;
 
-    public void RmWordBuilder(string rmInpitWord)
+    public void RmWordBuilder(string rmInputWord)
     {
-        if (rmInpitWord != null)
+        if (rmInputWord != null)
         {
-            _rm_text = rmInpitWord;
+            _rm_text = rmInputWord;
             _rm_isHidden = false;
         }
         else

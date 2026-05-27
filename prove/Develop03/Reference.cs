@@ -5,30 +5,45 @@ public class Reference
     private int _rm_startVerse;
     private int _rm_endVerse;
 
-    public void RmConstructor(string rmBook, int rmChapter, int rmStartVerse, int rmEndVerse)
+    // Parse a reference like "John 3:16-17" or "John 3:16"
+    public void RmConstructor(string rmReference)
     {
-        if (rmBook != null && rmChapter > 0 && rmStartVerse > 0 && rmEndVerse >= 0)
+        if (string.IsNullOrWhiteSpace(rmReference))
         {
-            _rm_book = rmBook;
-            _rm_chapter = rmChapter;
-            _rm_startVerse = rmStartVerse;
-            _rm_endVerse = rmEndVerse;
+            Console.WriteLine("Invalid book, chapter, start verse, or end verse.");
+            return;
+        }
+
+        var rmParts = rmReference.Split(new[] { ' ' });
+        _rm_book = rmParts[0];
+
+        var rmChapParts = rmParts[1].Split(':');
+       _rm_chapter = 0;
+
+        var rmVersePart = rmChapParts[1];
+        if (rmVersePart.Contains('-'))
+        {
+            var rmVerse = rmVersePart.Split(new[] { '-' }, 2);
+            _rm_startVerse = int.Parse(rmVerse[0]);
+            _rm_endVerse = int.Parse(rmVerse[1]);
         }
         else
         {
-            Console.WriteLine("Invalid book, chapter, start verse, or end verse.");
+            _rm_startVerse = int.Parse(rmVersePart);
+            _rm_endVerse = 0;
         }
+        
     }
 
     public string RmToString()
     {
         if (_rm_endVerse == 0)
         {
-            return $"{_rm_book} {_rm_chapter}:{_rm_startVerse} ";
+            return $"{_rm_book} {_rm_chapter}:{_rm_startVerse}";
         }
         else
         {
-            return $"{_rm_book} {_rm_chapter}:{_rm_startVerse}-{_rm_endVerse} ";
+            return $"{_rm_book} {_rm_chapter}:{_rm_startVerse}-{_rm_endVerse}";
         }
     }
 
