@@ -6,6 +6,8 @@
 //    google
 //    AI
 //    stackoverflow
+// Above and beyond
+// I improved the code by adding the constraint of not being able to hide the same word twice
 
 
 
@@ -20,7 +22,7 @@ class Program
         Scripture rmScripture = new Scripture();
 
         string rmScriptureReference = "John 3:16-17";
-        string rmScriptureText = "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life. 17 For God sent not his Son into the world to condemn the world; but that the world through him might be saved.";
+        string rmScriptureText = "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life. \n17 For God sent not his Son into the world to condemn the world; but that the world through him might be saved.";
 
         rmScripture.RmConstructor(rmScriptureText, rmScriptureReference);
 
@@ -41,6 +43,7 @@ class Program
             bool finished = rmScripture.RmHideWord(3);
             if (finished == true)
             {
+                Console.Clear();
                 Console.WriteLine(rmScripture.RmToString());
                 Console.WriteLine("");
                 Console.WriteLine("All words have been hidden.");

@@ -11,7 +11,7 @@ public class Scripture
     
     public string RmToString()
     {
-        return $"{_rm_reference.RmToString()} {_rm_passage.RmToString()}";
+        return $"{_rm_reference.RmToString()} \n{_rm_passage.RmToString()}";
     }
 
     public bool RmHideWord(int rmWordsToHide)

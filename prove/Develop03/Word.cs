@@ -36,7 +36,7 @@ public class Word
     {
         if (_rm_isHidden)
         {
-            return ("___");
+            return (new string('_', _rm_text.Length));
         }
         else
         {
