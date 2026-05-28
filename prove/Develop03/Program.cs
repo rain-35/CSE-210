@@ -24,15 +24,32 @@ class Program
 
         rmScripture.RmConstructor(rmScriptureText, rmScriptureReference);
 
-
         Console.WriteLine("Scripture Memorizer!");
 
+        string input = "";
 
-
-
-
-
-
+        while (input != "quit")
+        {
+            
+            Console.WriteLine(rmScripture.RmToString());
+            Console.WriteLine("Press enter to continue or type 'quit' to exit.");
+            input = Console.ReadLine();
+            if (input == "quit")
+            {
+                break;
+            }
+            bool finished = rmScripture.RmHideWord(3);
+            if (finished == true)
+            {
+                Console.WriteLine(rmScripture.RmToString());
+                Console.WriteLine("");
+                Console.WriteLine("All words have been hidden.");
+                Console.WriteLine("Well done!");
+                Console.WriteLine("The program will now exit.");
+                break;
+            }
+            Console.Clear();
+        }
 
 
 

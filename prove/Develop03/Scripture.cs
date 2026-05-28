@@ -14,7 +14,12 @@ public class Scripture
         return $"{_rm_reference.RmToString()} {_rm_passage.RmToString()}";
     }
 
-    
+    public bool RmHideWord(int rmWordsToHide)
+    {
+        bool finished = _rm_passage.RmHideWords(rmWordsToHide);
+
+        return finished;
+    }
 
 
 }

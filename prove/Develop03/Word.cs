@@ -22,6 +22,7 @@ public class Word
     {
         if (_rm_isHidden == true)
         {
+            // if it was already hidden return false for didnt work
             return false;
         }
         else

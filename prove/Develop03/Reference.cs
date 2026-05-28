@@ -18,7 +18,7 @@ public class Reference
         _rm_book = rmParts[0];
 
         var rmChapParts = rmParts[1].Split(':');
-       _rm_chapter = 0;
+       _rm_chapter = int.Parse(rmChapParts[0]);
 
         var rmVersePart = rmChapParts[1];
         if (rmVersePart.Contains('-'))
