@@ -1,7 +1,9 @@
 public class Reflection : Activity
 {
-    private List<string> _rm_unusedQuestions;
-    private List<string> _rm_unusedPrompts;
+    private List<string> _rm_unusedQuestions = new List<string>
+    {};
+    private List<string> _rm_unusedPrompts = new List<string>
+    {};
     private List<string> _rm_prompts = new List<string>
     {
         "Think of a time when you stood up for someone else.",
@@ -70,7 +72,7 @@ public class Reflection : Activity
         Console.Clear();
 
         Console.WriteLine("Now ponder on each of the following questions as they relate to this experience. press enter for a new question.");
-        ShowSpinner(1);
+        ShowSpinner(2);
         Console.Clear();
 
         DateTime endTime = DateTime.Now.AddSeconds(_rm_duration);

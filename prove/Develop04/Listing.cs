@@ -20,10 +20,11 @@ public class Listing : Activity
         return prompt;
     }
 
+    
     public void Run()
     {
-        rm_itemCount = 0;
-        
+        _rm_itemCount = 0;
+
         Console.Clear();
         DisplayStartingMessage();
 
@@ -40,7 +41,11 @@ public class Listing : Activity
             {
                 _rm_itemCount = _rm_itemCount + 1;
             }
+            
         }
+        Console.Clear();
+        Console.WriteLine($"\nYou have listed {_rm_itemCount} items.");
+        DisplayEndingMessage();
 
     }
 
