@@ -7,7 +7,14 @@ public class Simple : Goal
 
     public override int GetPoints()
     {
-        return _rm_points;
+        if (_rm_status)
+        {
+            return _rm_points;
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     public override void RecordEvent()

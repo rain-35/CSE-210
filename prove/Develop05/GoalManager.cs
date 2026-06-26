@@ -1,7 +1,6 @@
 public class GoalManager
 {
     private List<Goal> _rm_goalList;
-    private List<String> _rm_loadList;
     private int _rm_score;
     private int choice;
     private int x;
@@ -9,17 +8,13 @@ public class GoalManager
     public GoalManager()
     {
         _rm_goalList = new List<Goal>();
-        _rm_loadList = new List<string>();
     }
     public void CalculateScore()
     {
         _rm_score = 0;
         foreach (Goal g in _rm_goalList)
         {
-            if (g.IsComplete())
-            {
-                _rm_score += g.GetPoints();
-            }
+            _rm_score += g.GetPoints();
         }
     }
 
@@ -157,19 +152,14 @@ public class GoalManager
             Console.WriteLine("File does not exist.");
             return;
         }
-
-        _rm_loadList.Clear();
         _rm_goalList.Clear();
 
         string[] lines = System.IO.File.ReadAllLines(fileName);
 
         foreach (string line in lines)
         {
-            _rm_loadList.Add(line);
-        }
-        
-        foreach (string line in _rm_loadList)
-        {
+            if (string.IsNullOrWhiteSpace(line)) continue;
+
             string[] values = line.Split(',');
             
             if (values[0] == "Simple")
