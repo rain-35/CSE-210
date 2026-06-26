@@ -6,6 +6,8 @@ public class Checklist : Goal
     public Checklist(string name, string description, int points, int goalCount, int bonusPoints, bool status = false, int timesCompletted = 0): base(name, description, points, status, timesCompletted)
     {
         _rm_type = "Checklist";
+        _rm_goalCount = goalCount;
+        _rm_bonusPoints = bonusPoints;
     }
     
     public override void RecordEvent()

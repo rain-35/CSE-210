@@ -4,15 +4,17 @@ class Program
 {
     static void Main(string[] args)
     {
+        GoalManager gm = new GoalManager();
+
         while (true)
         {
             int choice = 0;
 
-            GoalManager gm = new GoalManager();
-            gm.ShowScore();
+            
 
             Console.Clear();
-            Console.WriteLine("Menu options");
+            gm.ShowScore();
+            Console.WriteLine("\nMenu options");
             Console.WriteLine("1. Create a goal");
             Console.WriteLine("2. List goals");
             Console.WriteLine("3. Save goals");
@@ -30,6 +32,8 @@ class Program
             else if (choice == 2)
             {
                 gm.ListGoals();
+                Console.WriteLine("Press enter to continue");
+                Console.ReadLine();
             }
             else if (choice == 3)
             {

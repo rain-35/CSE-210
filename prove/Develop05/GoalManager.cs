@@ -13,6 +13,7 @@ public class GoalManager
     }
     public void CalculateScore()
     {
+        _rm_score = 0;
         foreach (Goal g in _rm_goalList)
         {
             if (g.IsComplete())
@@ -93,8 +94,7 @@ public class GoalManager
             Console.WriteLine($"{x}. {g.ToShortString()}");
             x++;
         }
-        Console.WriteLine("Press enter to continue");
-        Console.ReadLine();
+        
         
     }
 
@@ -104,15 +104,16 @@ public class GoalManager
         ListGoals();
         Console.WriteLine("Enter the number of the goal you would like to record an event for: ");
         choice = int.Parse(Console.ReadLine());
-        choice = choice - 1;
+        
 
         if (choice > 0 && choice <= _rm_goalList.Count)
         {
+            choice = choice - 1;
             Console.WriteLine("Would you like to record an event for this goal?");
-            Console.WriteLine($"{x}. {_rm_goalList[choice].ToShortString()}");
-            Console.Write("Enter 1 for yes or 2 for no: ");
-            choice = int.Parse(Console.ReadLine());
-            if (choice == 1)
+            Console.WriteLine($"{_rm_goalList[choice].ToShortString()}");
+            Console.Write("Enter 1 for yes or 0 for no: ");
+            x = int.Parse(Console.ReadLine());
+            if (x == 1)
             {
                 _rm_goalList[choice].RecordEvent();
             }
@@ -175,17 +176,20 @@ public class GoalManager
             {
                 //0=type, 1=name, 2=description, 3=points, 4=status, 5=timesCompletted
                 Simple s = new Simple(values[1], values[2], int.Parse(values[3]), bool.Parse(values[4]), int.Parse(values[5]));
+                _rm_goalList.Add(s);
             }   
             else if (values[0] == "Eternal")
             {
                 //0=type, 1=name, 2=description, 3=points, 4=status, 5=timesCompletted
                 Eternal e = new Eternal(values[1], values[2], int.Parse(values[3]), bool.Parse(values[4]), int.Parse(values[5]));
+                _rm_goalList.Add(e);
             }
             else if (values[0] == "Checklist")
             {
                 //0=type, 1=name, 2=description, 3=points, 4=status, 5=timesCompletted, 6=goalCount, 7=bonusPoints
                 //loader 1=name, 2=description, 3=points, 4=goalCount, 5=bonusPoints, 6=status, 7=timesCompletted
                 Checklist c = new Checklist(values[1], values[2], int.Parse(values[3]), int.Parse(values[6]), int.Parse(values[7]), bool.Parse(values[4]), int.Parse(values[5]));
+                _rm_goalList.Add(c);
             }
             else
             {
