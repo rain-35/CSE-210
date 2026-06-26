@@ -1,6 +1,6 @@
 public class Simple : Goal
 {
-    public Simple(string name, string description, int points): base(name, description, points)
+    public Simple(string name, string description, int points, bool status = false, int timesCompletted = 0): base(name, description, points, status, timesCompletted)
     {
         _rm_type = "Simple";
     }
@@ -16,5 +16,7 @@ public class Simple : Goal
         _rm_checkbox = "[x]";
         _rm_timesCompletted++;
     }
+
+    //default save string with 6 values
 
 }
