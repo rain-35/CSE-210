@@ -1,3 +1,15 @@
+// Program.cs
+// CSE-210
+// Created by Rainen Morriss on 6/26/26
+// Sources
+//    class material
+//    google
+//    AI
+//    stackoverflow
+// Above and beyond
+// I improved the code by impliementing a leveling system
+
+
 using System;
 
 class Program
@@ -49,7 +61,7 @@ class Program
             }
             else if (choice == 6)
             {
-                Console.WriteLine("Thank you for using the Mindfulness App!");
+                Console.WriteLine("Thank you for using the Eternal Quest App!");
                 break;
             }
             else

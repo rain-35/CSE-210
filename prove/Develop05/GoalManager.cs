@@ -21,7 +21,10 @@ public class GoalManager
     public void ShowScore()
     {
         CalculateScore();
-        Console.WriteLine($"You have {_rm_score} points.");
+        int level = (_rm_score / 1000) + 1; 
+        int xpProgress = _rm_score % 1000;
+
+        Console.WriteLine($"You have {_rm_score} points. | Level {level} ({xpProgress}/1000 XP to next level)");
     }
 
     public void CreateGoal()
@@ -49,14 +52,13 @@ public class GoalManager
             Console.WriteLine("Creating a simple goal");
             Simple s = new Simple(name, description, points);
             _rm_goalList.Add(s);
-            s.ToShortString();
         }
         else if (choice == 2)
         {
             Console.WriteLine("Creating an eternal goal");
             Eternal e = new Eternal(name, description, points);
             _rm_goalList.Add(e);
-            e.ToShortString();
+
         }
         else if (choice == 3)
         {
@@ -69,7 +71,7 @@ public class GoalManager
 
             Checklist c = new Checklist(name, description, points, goalCount, bonusPoints);
             _rm_goalList.Add(c);
-            c.ToShortString();
+
         }
         else
         {
