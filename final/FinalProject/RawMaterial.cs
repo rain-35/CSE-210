@@ -10,5 +10,8 @@ public class RawMaterial : Component
         _rm_minOrderQty = minOrderQty;
     }
 
-  
+    public override string GetDetails()
+    {
+        return base.GetDetails() + $" | Supplier: {_rm_supplierName}";
+    }
 }

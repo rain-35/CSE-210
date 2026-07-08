@@ -20,4 +20,8 @@ public class ManufacturedGood : Component
         }
     }
 
+    public override string GetDetails()
+    {
+        return base.GetDetails() + $" | Recipe Ingredients: {_rm_recipe.Count}";
+    }
 }

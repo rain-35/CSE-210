@@ -35,5 +35,10 @@ public abstract class Component
         _rm_stockQuantity += amount;
     }
 
+    public virtual string GetDetails()
+    {
+        return $"Part: {_rm_partNumber} | Lead Time: {_rm_leadTimeDays} days";
+    }
+
 
 }
