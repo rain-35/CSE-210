@@ -3,6 +3,8 @@ public class BillOfMaterialItem
     private Component _rm_subComponent;
     private int _rm_quantityRequired;
 
+    public Component SubComponent => _rm_subComponent;
+    public int QuantityRequired => _rm_quantityRequired;
 
     public BillOfMaterialItem(Component subComponent, int quantityRequired)
     {

@@ -1,15 +1,16 @@
+using System.Collections.Generic;
+
 public class ManufacturedGood : Component
 {
     private List<BillOfMaterialItem> _rm_recipe;
 
+    public IReadOnlyList<BillOfMaterialItem> Recipe => _rm_recipe;
+
     public ManufacturedGood(string partNumber, string description, int stockQuantity, int leadTimeDays, List<BillOfMaterialItem> recipe)
         : base(partNumber, description, stockQuantity, leadTimeDays)
     {
-        _rm_recipe = new List<BillOfMaterialItem>();
-
+        _rm_recipe = recipe ?? new List<BillOfMaterialItem>();
     }
-
-    
 
     public void AddRecipeItem(Component subComponent, int qtyRequired)
     {
@@ -19,8 +20,4 @@ public class ManufacturedGood : Component
         }
     }
 
-    public override string GetSaveData()
-    {
-        return $"ManufacturedGood|{_rm_partNumber}|{_rm_description}|{_rm_stockQuantity}|{_rm_leadTimeDays}";
-    }
 }
